@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const routeBetweenPages = require('./Routes/Static-Routes');
 const routeUserData = require('./Routes/Login-Signup-Route');
@@ -9,8 +10,7 @@ const PORT = process.env.PORT || 8000;
 const app = express();
 const connectDB = require('./connect-to-DB.js');
 
-
-connectDB('mongodb://127.0.0.1:27017/login-signup-practice').then(() => {
+connectDB(process.env.MONGO_URI).then(() => {
     console.log(`Connected to monogoDB`)
 }).catch((err) => {
     console.log('Error Occurred while connecting with DB', err);
