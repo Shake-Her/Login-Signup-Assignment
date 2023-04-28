@@ -11,7 +11,7 @@ const handelSignup = async (req, res) => {
             password: body.password
         })
     } catch (error) {
-        return res.redirect('/*')
+        return res.redirect('/login');
     }
 
     return res.redirect('/login');
